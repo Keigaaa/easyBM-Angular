@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    width: 100vw;
+}
+
+form {
+    width: 100vw;
+}
+
+.formContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
