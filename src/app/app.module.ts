@@ -11,6 +11,7 @@ import { SecurityModule } from './security/security.module';
   imports: [
     BrowserModule,
     SecurityModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
