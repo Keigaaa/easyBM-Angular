@@ -1,24 +1,36 @@
 <div class="loginFormContainer">
-    <div class="titleIconContainer">
-        <img src="/assets/icons/easyBM.png" alt="Icon Bookmark">
-        <h1>easyBM</h1>
+    <div>
+        <div class="titleIconContainer">
+            <img src="/assets/icons/easyBM.png" alt="Icon Bookmark">
+            <h1>easyBM</h1>
+        </div>
+        <form class="formContainer" method="get">
+            <div class="emailContainer">
+                <label for="email">
+                    <i-feather name="user"></i-feather>
+                </label>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="passwordContainer">
+                <label for="password">
+                    <i-feather name="key"></i-feather>
+                </label>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="loginContainer">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+        <div class="other">
+            <div>
+                <label for="remember">Remember me</label>
+                <input type="checkbox" name="remember">
+            </div>
+            <p><a>Register now</a></p>
+            <p><a>Forgot password?</a></p>
+        </div>
     </div>
-    <form class="formContainer" method="get">
-        <label for="email">
-            <i-feather name="user"></i-feather>
-        </label>
-        <input type="email" name="email" placeholder="Email" required>
-        <label for="password">
-            <i-feather name="key"></i-feather>
-        </label>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="submit" value="Login">
-    </form>
-    <div class="other">
-        <label for="remember">Remember me</label>
-        <input type="checkbox" name="remember">
-        <p><a>Register now</a></p>
-        <p><a>Forgot password?</a></p>
+    <div>
+        <img src="/assets/icons/loginForm.jpg" alt="A Clockwork Orange" class="loginFormPicture">
     </div>
-    <img src="/assets/icons/loginForm.jpg" alt="A Clockwork Orange" class="loginFormPicture">
 </div>

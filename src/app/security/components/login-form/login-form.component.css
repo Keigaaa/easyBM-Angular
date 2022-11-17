@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Macondo&display=swap');
+
 :host {
     display: flex;
     justify-content: center;
@@ -8,24 +10,43 @@
 
 .loginFormContainer {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     border: 1px solid black;
-    height: 500px;
-    width: 900px;
+    grid-template-columns: repeat(2, 450px);
+    grid-template-rows: repeat(1, 300px);
 }
 
 .titleIconContainer {
-    display: flex;
-    grid-column: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
 
-.formContainer {
+.titleIconContainer h1 {
+    justify-self: center;
+    align-self: center;
+    font-size: 70px;
+    font-family: 'Lobster', cursive;
+    margin: 5px;
+}
+
+.titleIconContainer img {
+    justify-self: center;
+    align-self: center;
+}
+
+.emailContainer {
     display: grid;
-    grid-column: 1/2;
+    grid-template-columns: max-content auto;
 }
 
 .other {
-    grid-column: 1/2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.other p {
+    padding: 0;
+    margin: 0;
 }
 
 .loginFormPicture {
