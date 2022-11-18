@@ -12,41 +12,18 @@
     display: grid;
     border: 1px solid black;
     grid-template-columns: repeat(2, 450px);
-    grid-template-rows: repeat(1, 300px);
+    grid-template-rows: repeat(1, 450px);
+}
+
+.loginFormLeft {
+    display: grid;
 }
 
 .titleIconContainer {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-}
-
-.titleIconContainer h1 {
-    justify-self: center;
-    align-self: center;
-    font-size: 70px;
-    font-family: 'Lobster', cursive;
-    margin: 5px;
-}
-
-.titleIconContainer img {
-    justify-self: center;
-    align-self: center;
-}
-
-.emailContainer {
-    display: grid;
-    grid-template-columns: max-content auto;
-}
-
-.other {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
     justify-items: center;
-}
-
-.other p {
-    padding: 0;
-    margin: 0;
 }
 
 .loginFormPicture {
@@ -56,7 +33,52 @@
     grid-column: 2/2;
 }
 
-img {
+.h1LoginForm {
+    font-size: 70px;
+    text-align: center;
+}
+
+.formContainer {
+    display: grid;
+}
+
+.emailContainer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 5px;
+}
+
+.passwordContainer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 5px;
+}
+
+.iconFormContainer {
+    position: relative;
+    top: 7px;
+    margin: 2px;
+}
+
+.loginContainer {
+    margin: 5px;
+}
+
+.loginContainer input {
+    width: 100%;
+    height: 100%;
+}
+
+.other {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.other label {}
+
+.imgLoginForm {
     width: 100px;
     aspect-ratio: 16/11;
+
 }
