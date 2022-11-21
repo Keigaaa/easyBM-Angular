@@ -10,13 +10,14 @@
 
 .loginFormContainer {
     display: grid;
-    border: 1px solid black;
-    grid-template-columns: repeat(2, 450px);
-    grid-template-rows: repeat(1, 450px);
+    grid-template-columns: repeat(2, 400px);
+    grid-template-rows: repeat(1, 500px);
 }
 
 .loginFormLeft {
     display: grid;
+    grid-template-rows: 3fr 7fr 3fr;
+    border: 3px solid black;
 }
 
 .titleIconContainer {
@@ -24,13 +25,14 @@
     grid-template-columns: 1fr 3fr;
     align-items: center;
     justify-items: center;
+    border-bottom: 3px solid black;
 }
 
 .loginFormPicture {
     width: 100%;
     height: 100%;
     grid-row: 1/4;
-    grid-column: 2/2;
+    border: 3px solid black;
 }
 
 .h1LoginForm {
@@ -40,18 +42,42 @@
 
 .formContainer {
     display: grid;
+    grid-template-rows: 3fr 3fr 2fr;
+    border-bottom: 3px solid black;
 }
 
 .emailContainer {
     display: grid;
     grid-template-columns: auto 1fr;
-    margin: 5px;
+    margin: 15px;
+    height: 70%;
+}
+
+.emailContainer input {
+    border: 3px solid black;
+}
+
+.passwordContainer input {
+    border: 3px solid black;
+}
+
+.emailContainer label {
+    position: relative;
+    top: 25px;
+    right: 3px;
+}
+
+.passwordContainer label {
+    position: relative;
+    top: 25px;
+    right: 3px;
 }
 
 .passwordContainer {
     display: grid;
     grid-template-columns: auto 1fr;
-    margin: 5px;
+    margin: 15px;
+    height: 70%;
 }
 
 .iconFormContainer {
@@ -69,16 +95,45 @@
     height: 100%;
 }
 
-.other {
+.imgLoginForm {
+    width: 100px;
+    aspect-ratio: 16/11;
+}
+
+.topButton {
     display: grid;
+}
+
+.linkContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: center;
 }
 
-.other label {}
+.rememberContainer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    justify-items: center;
+}
 
-.imgLoginForm {
-    width: 100px;
-    aspect-ratio: 16/11;
+.rememberContainer label {
+    font-size: 20px;
+    grid-row: 1/3;
+    margin: 2px;
+}
 
+.rememberContainer input[type=checkbox] {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    right: 115px;
+    top: 2px;
+    margin: 2px;
+    grid-row: 1/3;
+}
+
+.linkContainer p {
+    font-size: 20px;
 }
