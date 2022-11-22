@@ -4,21 +4,25 @@
             <img class="imgLoginForm" src="/assets/icons/easyBM.png" alt="Icon Bookmark">
             <h1 class="h1LoginForm">easyBM</h1>
         </div>
-        <form class="formContainer" method="get">
+        <form class="formContainer" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
             <div class="emailContainer">
                 <label for="email">
                     <i-feather class="iconFormContainer" name="user"></i-feather>
                 </label>
-                <input type="email" name="email" placeholder="Email" required>
+                <input name="email" placeholder="Email" formControlName="email" />
             </div>
             <div class="passwordContainer">
                 <label for="password">
                     <i-feather class="iconFormContainer" name="key"></i-feather>
                 </label>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" formControlName="password" />
             </div>
             <div class="loginContainer">
-                <input type="submit" value="Login">
+                <span *ngIf="loginFormControlHasError('email', 'required')">{{getEmailMessageError('required')}}</span>
+                <span *ngIf="loginFormControlHasError('email', 'email')">{{getEmailMessageError('email')}}</span>
+                <span
+                    *ngIf="loginFormControlHasError('password', 'required')">{{getPasswordMessageError('required')}}</span>
+                <input type="submit" value="Login" />
             </div>
         </form>
         <div class="topButton">

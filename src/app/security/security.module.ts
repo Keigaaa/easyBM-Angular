@@ -4,6 +4,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { IconsModule } from '../icons/icons.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,9 @@ import { IconsModule } from '../icons/icons.module';
   ],
   imports: [
     CommonModule,
-    IconsModule
+    IconsModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     LoginPageComponent,

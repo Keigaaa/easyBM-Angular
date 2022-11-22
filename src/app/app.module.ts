@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { SecurityModule } from './security/security.module';
-
 @NgModule({
   declarations: [
     AppComponent
@@ -11,6 +10,7 @@ import { SecurityModule } from './security/security.module';
   imports: [
     BrowserModule,
     SecurityModule,
+
 
   ],
   providers: [],

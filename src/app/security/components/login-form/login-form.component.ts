@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ns-login-form',
@@ -7,9 +8,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  loginForm: FormGroup = this.fb.group({
+    email: this.fb.control('', [Validators.required, Validators.email]),
+    password: this.fb.control('', [Validators.required])
+  }, { updateOn: 'submit' });
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
+  getEmailMessageError(error: string) {
+    switch (error) {
+      case "required":
+        return "Le champ email ne doit pas être vide."
+      case "email":
+        return "L'email doit être valide."
+      default: return "";
+    }
+  }
+
+  getPasswordMessageError(error: string) {
+    switch (error) {
+      case "required":
+        return "Le champ password ne doit pas être vide."
+      default: return "";
+    }
+  }
+
+  submitLoginForm() {
+    //????
+    //Appeler une API ?
+  }
+
+  loginFormControlHasError(formControlName: string, typeError: string) {
+    let control = this.loginForm.get(formControlName);
+    return control?.dirty && control.hasError(typeError)
+  }
 }
