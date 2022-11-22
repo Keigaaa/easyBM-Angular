@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'ns-login-form',
@@ -13,7 +14,7 @@ export class LoginFormComponent implements OnInit {
     password: this.fb.control('', [Validators.required])
   }, { updateOn: 'submit' });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -46,3 +47,4 @@ export class LoginFormComponent implements OnInit {
     return control?.dirty && control.hasError(typeError)
   }
 }
+
