@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'ns-login-form',
@@ -14,7 +15,7 @@ export class LoginFormComponent implements OnInit {
     password: this.fb.control('', [Validators.required])
   }, { updateOn: 'submit' });
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -38,13 +39,17 @@ export class LoginFormComponent implements OnInit {
   }
 
   submitLoginForm() {
-    //????
-    //Appeler une API ?
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+    this.authService.Login(email, password);
+
   }
+
 
   loginFormControlHasError(formControlName: string, typeError: string) {
     let control = this.loginForm.get(formControlName);
     return control?.dirty && control.hasError(typeError)
   }
 }
+
 
