@@ -3,6 +3,10 @@
 <main>
     <!-- Router -->
     <ns-login-page></ns-login-page>
+    <div *ngIf="authService.isLogged$ | async">
+        <span>UserName : {{user.name}}</span>
+        <span>Token : {{user.token}}</span>
+    </div>
 </main>
 <footer>
 

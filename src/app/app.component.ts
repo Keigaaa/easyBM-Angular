@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './security/services/auth.service';
 
 @Component({
   selector: 'ns-root',
@@ -8,5 +9,19 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'easyBM';
-  user: any = { name: 'Keiga' };
+  user: { name: string, token: string } = { name: 'Keiga', token: "" };
+  ;
+
+  constructor(public authService: AuthService) {
+    this.authService.isLogged$.subscribe(isLogged => {
+      if (isLogged) {
+        this.user.name = this.authService.name!;
+        this.user.token = this.authService.token!;
+      }
+    })
+
+
+  }
+
+
 }

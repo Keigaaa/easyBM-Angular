@@ -42,7 +42,6 @@ export class LoginFormComponent implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
     this.authService.Login(email, password);
-
   }
 
 

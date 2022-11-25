@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apis: {
+    bookmarks: "https://lab016.s1.2isa.org/api/"
+  }
 };
 
 /*
