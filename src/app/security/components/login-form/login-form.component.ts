@@ -20,6 +20,11 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * 
+   * @param error string
+   * @returns Returns a message when the email is not valid
+   */
   getEmailMessageError(error: string) {
     switch (error) {
       case "required":
@@ -30,6 +35,11 @@ export class LoginFormComponent implements OnInit {
     }
   }
 
+  /**
+   * 
+   * @param error string
+   * @returns Returns a message when the password is not valid
+   */
   getPasswordMessageError(error: string) {
     switch (error) {
       case "required":
@@ -38,13 +48,21 @@ export class LoginFormComponent implements OnInit {
     }
   }
 
+  /**
+   * Saves the email and password of the form in constant
+   */
   submitLoginForm() {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
     this.authService.Login(email, password);
   }
 
-
+  /**
+   * 
+   * @param formControlName string
+   * @param typeError string
+   * @returns Returns informations about the error detected
+   */
   loginFormControlHasError(formControlName: string, typeError: string) {
     let control = this.loginForm.get(formControlName);
     return control?.dirty && control.hasError(typeError)

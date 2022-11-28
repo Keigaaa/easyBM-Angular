@@ -1,3 +1,6 @@
+/**
+ * Environment constant representing the URL of the API
+ */
 export const environment = {
   production: true,
   apis: {

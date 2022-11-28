@@ -1,9 +1,9 @@
 /**
- * Représente la réponse générique de L'API BookMarks
+ * Represent the generic response from the API easyBM
  */
 export class APIResponse<T>{
     /** 
-     * Données de la reponse
+     * Data from the response
     */
     public data?: T;
     public message?: string;

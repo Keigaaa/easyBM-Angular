@@ -16,29 +16,46 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  //IsLogged 
+
   private _isLogged = new BehaviorSubject<Boolean>(false);
+  private _name: string | undefined;
+  private _token: string | undefined;
+
+  /**
+   * Look at the observable _isLogged
+   */
   public get isLogged$() {
     return this._isLogged.asObservable();
   }
+
+  /**
+   * Return the value of _isLogged
+   */
   public get isLogged() {
     return this._isLogged.getValue();
   }
 
-  private _name: string | undefined;
+  /**
+   * Return the value of the _name
+   */
   public get name(): string | undefined {
     return this._name;
   }
 
-  private _token: string | undefined;
+  /**
+   * Return the value of the _token
+   */
   public get token(): string | undefined {
     return this._token;
   }
-  //userToken
 
   constructor(private http: HttpClient) { }
 
-
+  /**
+   * Checks that the email and password passed are correct and either returns an error or allow the user to log in
+   * @param email string
+   * @param password string
+   */
   public Login(email: string, password: string) {
     this.http.post<APIResponse<LoginResponse>>(environment.apis.bookmarks + 'login', {
       email: email,
@@ -59,7 +76,9 @@ export class AuthService {
     });
   }
 
-  //Logout
+  /**
+   * Allows the user to log out
+   */
   public logout() {
     this._isLogged.next(false);
     this._token = undefined;
