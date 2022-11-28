@@ -4,6 +4,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../security/guards/auth.guard';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
@@ -11,7 +12,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HomePageComponent,
-    SideBarComponent
+    SideBarComponent,
+    TopBarComponent
   ],
   imports: [
     CommonModule,

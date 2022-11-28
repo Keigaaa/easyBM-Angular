@@ -1,0 +1,5 @@
+.sideBarContainer {
+    background-color: red;
+    width: 200px;
+    height: calc(100vh - 80px);
+}
