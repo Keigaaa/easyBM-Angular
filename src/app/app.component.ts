@@ -19,9 +19,5 @@ export class AppComponent {
         this.user.token = this.authService.token!;
       }
     })
-
-
   }
-
-
 }

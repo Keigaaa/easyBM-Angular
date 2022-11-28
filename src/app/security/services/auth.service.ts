@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { APIResponse } from 'src/app/data-models/api-response-model';
 import { LoginResponse } from 'src/app/data-models/login-response-model';
@@ -17,7 +18,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  private _isLogged = new BehaviorSubject<Boolean>(false);
+  private _isLogged = new BehaviorSubject<boolean>(false);
   private _name: string | undefined;
   private _token: string | undefined;
 
@@ -49,7 +50,13 @@ export class AuthService {
     return this._token;
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) {
+    if (localStorage.getItem("appId") != undefined) {
+      this._token = localStorage.getItem("appId")!;
+      this._isLogged.next(true);
+    }
+
+  }
 
   /**
    * Checks that the email and password passed are correct and either returns an error or allow the user to log in
@@ -66,6 +73,7 @@ export class AuthService {
           this._token = result.data?.token;
           this._name = result.data?.name;
           this._isLogged.next(true);
+          localStorage.setItem("appId", this._token!);
         }
       },
       error: (err: any) => {
@@ -83,6 +91,7 @@ export class AuthService {
     this._isLogged.next(false);
     this._token = undefined;
     this._name = undefined;
+    localStorage.removeItem("appId");
+    this.router.navigate(["login"]);
   }
-
 }
