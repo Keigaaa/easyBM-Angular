@@ -6,8 +6,6 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { IconsModule } from '../icons/icons.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     LoginPageComponent,

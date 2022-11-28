@@ -4,7 +4,8 @@ import { AuthGuard } from './security/guards/auth.guard';
 import { LoginPageComponent } from './security/pages/login-page/login-page.component';
 
 export const ROUTES: Routes = [
-    { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
+    // { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
+    { path: '', loadChildren: () => import("./easy-bm/easy-bm.module").then(m => m.EasyBMModule), canActivate: [AuthGuard] },
     { path: 'login', component: LoginPageComponent }
 ];
 
