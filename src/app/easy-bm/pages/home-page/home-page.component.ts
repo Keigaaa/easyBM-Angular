@@ -1,5 +1,5 @@
-import { AfterViewChecked, Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/security/services/auth.service';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'ns-home-page',
@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/security/services/auth.service';
 })
 export class HomePageComponent {
 
-  constructor(public authService: AuthService) { }
+  constructor() { }
 
 
 
