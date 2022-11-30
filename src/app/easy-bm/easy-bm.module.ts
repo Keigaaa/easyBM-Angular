@@ -16,12 +16,11 @@ const routes: Routes = [
     HomePageComponent,
     TopBarComponent,
     MainComponent,
-
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    IconsModule
+    IconsModule,
   ],
   providers: [EasyBMService]
 })

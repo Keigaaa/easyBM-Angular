@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { SecurityModule } from './security/security.module';
-import { EasyBMModule } from './easy-bm/easy-bm.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,7 @@ import { EasyBMModule } from './easy-bm/easy-bm.module';
     SecurityModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
