@@ -6,7 +6,6 @@ import { AuthGuard } from '../security/guards/auth.guard';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { EasyBMService } from './services/easy-bm.service';
 import { MainComponent } from './components/main/main.component';
-import { SpeedDialButtonComponent } from './components/main/speed-dial-button/speed-dial-button.component';
 import { IconsModule } from '../icons/icons.module';
 
 const routes: Routes = [
@@ -17,7 +16,6 @@ const routes: Routes = [
     HomePageComponent,
     TopBarComponent,
     MainComponent,
-    SpeedDialButtonComponent,
   ],
   imports: [
     CommonModule,
