@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    align-items: center;
+}
+
+.path {
+    font-size: 18px;
+}
