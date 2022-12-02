@@ -7,10 +7,13 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { EasyBMService } from './services/easy-bm.service';
 import { MainComponent } from './components/main/main.component';
 import { IconsModule } from '../icons/icons.module';
-import { SpeedDialButtonComponent } from './components/main/speed-dial-button/speed-dial-button.component';
+import { SpeedDialButtonComponent } from './components/speed-dial-button/speed-dial-button.component';
 import { SearchAndBreadcrumbTrailComponent } from './components/search-and-breadcrumb-trail/search-and-breadcrumb-trail.component';
-import { SearchBarComponent } from './components/search-and-breadcrumb-trail/search-bar/search-bar.component';
-import { BreadcrumbTrailComponent } from './components/search-and-breadcrumb-trail/breadcrumb-trail/breadcrumb-trail.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { BreadcrumbTrailComponent } from './components/breadcrumb-trail/breadcrumb-trail.component';
+import { FolderContainerComponent } from './components/folder-container/folder-container.component';
+import { BookmarkContainerComponent } from './components/bookmark-container/bookmark-container.component';
+import { TagContainerComponent } from './components/tag-container/tag-container.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
@@ -24,6 +27,9 @@ const routes: Routes = [
     SearchAndBreadcrumbTrailComponent,
     SearchBarComponent,
     BreadcrumbTrailComponent,
+    FolderContainerComponent,
+    BookmarkContainerComponent,
+    TagContainerComponent,
   ],
   imports: [
     CommonModule,

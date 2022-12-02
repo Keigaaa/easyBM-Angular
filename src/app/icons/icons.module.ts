@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FeatherModule } from 'angular-feather';
-import { User, Key, Power, PlusCircle, FolderPlus, FilePlus, Tag, Search } from 'angular-feather/icons';
+import { User, Key, Power, PlusCircle, FolderPlus, FilePlus, Tag, Search, Folder } from 'angular-feather/icons';
 const icons = {
   User,
   Key,
@@ -11,7 +11,8 @@ const icons = {
   FolderPlus,
   FilePlus,
   Tag,
-  Search
+  Search,
+  Folder
 };
 
 
