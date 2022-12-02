@@ -1,0 +1,36 @@
+:host {
+    align-self: flex-end;
+}
+
+.speedDialButton {
+    background-color: transparent;
+    border: none;
+    margin: 25px;
+    cursor: pointer;
+}
+
+.speedDialIcon {
+    width: 55px;
+    height: 55px;
+}
+
+.speedDialButtonItems {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.speedDialButtonItemsList {
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+}
+
+.displayItems {
+    visibility: visible;
+}
+
+.speedDialButton:hover,
+.speedDialButtonItems:hover {
+    color: white;
+}
