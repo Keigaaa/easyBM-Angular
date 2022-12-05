@@ -8,4 +8,5 @@ export class Folder {
     public updated_at?: Date;
     public idParent?: number;
     public idOwnerFolder?: number;
+    public children = <Folder[]>[];
 }

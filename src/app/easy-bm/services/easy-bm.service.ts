@@ -13,15 +13,29 @@ export class EasyBMService {
 
   header = new HttpHeaders({
     "Authorization": `Bearer ${this.authService.token!}`
-  })
+  });
+  folders: any;
 
-  constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {
+    this.getFolders().subscribe(folders => (this.folders = folders));
+  }
 
-
-  public GetFolders(): Observable<Folder[]> {
+  public getFolders(): Observable<Folder> {
     return this.http.get<APIResponse<Folder[]>>(environment.apis.bookmarks + 'folder', { headers: this.header })
       .pipe(
         map(apiResponse => apiResponse.data ?? <Array<Folder>>[]),
+        map(folders => this.createTree(folders))
       );
   };
+
+  private createTree(Folders: Array<Folder>): Folder {
+    let root: Folder | undefined = undefined;
+    let buffer: Map<Number, Folder> = new Map<Number, Folder>();
+    for (const [key, value] of this.folders) {
+      buffer.set(this.folders.id, this.folders);
+    }
+  }
+    return new Folder();
+  }
 }
+
