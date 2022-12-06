@@ -13,7 +13,6 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { BreadcrumbTrailComponent } from './components/breadcrumb-trail/breadcrumb-trail.component';
 import { FolderContainerComponent } from './components/folder-container/folder-container.component';
 import { BookmarkContainerComponent } from './components/bookmark-container/bookmark-container.component';
-import { TagContainerComponent } from './components/tag-container/tag-container.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
@@ -29,7 +28,6 @@ const routes: Routes = [
     BreadcrumbTrailComponent,
     FolderContainerComponent,
     BookmarkContainerComponent,
-    TagContainerComponent,
   ],
   imports: [
     CommonModule,

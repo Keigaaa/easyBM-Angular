@@ -1,1 +1,8 @@
-<p>bookmark-container works!</p>
+<ul>
+    <li *ngFor="let bookmark of bookmarks">
+        <div class="folderContainer">
+            <i-feather name="folder" class="folderIconContainer"></i-feather>
+            <span>{{bookmark?.name}}</span>
+        </div>
+    </li>
+</ul>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { bufferCount, filter, map, Observable } from 'rxjs';
 import { APIResponse } from 'src/app/data-models/api-response-model';
+import { Bookmark } from 'src/app/data-models/bookmark-model';
 import { Folder } from 'src/app/data-models/folder-model';
 import { AuthService } from 'src/app/security/services/auth.service';
 import { environment } from 'src/environments/environment';
@@ -15,7 +16,7 @@ export class EasyBMService {
   });
 
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) {
-    this.getFolders().subscribe(r => console.log(r));
+
   }
 
   /**
@@ -28,6 +29,15 @@ export class EasyBMService {
         map(apiResponse => apiResponse.data ?? <Array<Folder>>[]),
         map(folders => this.createTree(folders)!)
       );
+  };
+
+  /**
+   * Observable that retrieves all the bookmarks contained in the folder sent as a parameter
+   * @param folder 
+   * @returns <Array<Bookmark>>[]
+   */
+  public getBookmarks(folder: Folder): Observable<Bookmark[]> {
+    return this.http.get<Bookmark[]>(environment.apis.bookmarks + folder.id + '/content/bookmark', { headers: this.header });
   };
 
   /**
