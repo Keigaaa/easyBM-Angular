@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter, map, Observable } from 'rxjs';
+import { bufferCount, filter, map, Observable } from 'rxjs';
 import { APIResponse } from 'src/app/data-models/api-response-model';
 import { Folder } from 'src/app/data-models/folder-model';
 import { AuthService } from 'src/app/security/services/auth.service';
@@ -9,33 +9,61 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class EasyBMService {
-  //Liste des folders Observable subject
 
   header = new HttpHeaders({
     "Authorization": `Bearer ${this.authService.token!}`
   });
-  folders: any;
 
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) {
-    this.getFolders().subscribe(folders => (this.folders = folders));
+    this.getFolders().subscribe(r => console.log(r));
   }
 
+  /**
+   * Observable that retrieves all the user's folders connected
+   * @returns <Array<Folder>>[]
+   */
   public getFolders(): Observable<Folder> {
     return this.http.get<APIResponse<Folder[]>>(environment.apis.bookmarks + 'folder', { headers: this.header })
       .pipe(
         map(apiResponse => apiResponse.data ?? <Array<Folder>>[]),
-        map(folders => this.createTree(folders))
+        map(folders => this.createTree(folders)!)
       );
   };
 
-  private createTree(Folders: Array<Folder>): Folder {
+  /**
+   * Create a tree with all folders sorted by parent and child using a buffer which is a map
+   * @param folders 
+   * @returns  Folder | undefined
+   */
+  private createTree(folders: Array<Folder>): Folder | undefined {
+    // Declares the buffer and root variables
     let root: Folder | undefined = undefined;
     let buffer: Map<Number, Folder> = new Map<Number, Folder>();
-    for (const [key, value] of this.folders) {
-      buffer.set(this.folders.id, this.folders);
+    // Browse the folder parameter sent in the function t obuild the tree
+    for (let folder of folders) {
+      // Create a currentFolder variable that is equal to the currently browsed and either creates a child
+      let currentFolder = { ...folder, children: buffer.get(folder.id!)?.children ?? [] };
+      // Check if currrentFolder is the root
+      if (currentFolder.idParent == null) root = currentFolder;
+      // If it is the root , assign its id
+      buffer.set(folder.id!, currentFolder);
+      // If the currentFolder is not the root
+      if (folder.idParent != null) {
+        // Create a parent with the currentFolder id
+        let parent = buffer.get(folder.idParent)
+        // If the parent is know add his child
+        if (parent != undefined) {
+          parent.children.push(currentFolder)
+        }
+        else {
+          // Otherwise creates a child with no parent defined
+          buffer.set(currentFolder.idParent!, { children: [currentFolder] })
+        }
+      }
     }
-  }
-    return new Folder();
+    // Returns the root folder containing the entire tree
+    return root;
   }
 }
+
 
