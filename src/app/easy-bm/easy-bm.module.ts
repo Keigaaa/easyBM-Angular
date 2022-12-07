@@ -12,6 +12,7 @@ import { SearchAndBreadcrumbTrailComponent } from './components/search-and-bread
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { BreadcrumbTrailComponent } from './components/breadcrumb-trail/breadcrumb-trail.component';
 import { ItemContainerComponent } from './components/item-container/item-container.component';
+import { PathService } from './services/path.service';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
@@ -32,6 +33,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     IconsModule,
   ],
-  providers: [EasyBMService]
+  providers: [EasyBMService,
+    PathService,
+  ]
 })
 export class EasyBMModule { }
