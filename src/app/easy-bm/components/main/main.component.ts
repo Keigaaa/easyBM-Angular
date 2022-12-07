@@ -12,19 +12,18 @@ import { EasyBMService } from '../../services/easy-bm.service';
 export class MainComponent implements OnInit {
   protected bookmarks: Bookmark[] = [];
   protected root: Folder | undefined;
-  protected parent: Folder | undefined;
   private _folderSelected: Folder | undefined;
-  /// path des folders
+  public path: Folder[] = [];
+
   protected get folderSelected(): Folder | undefined {
     return this._folderSelected;
   }
   protected set folderSelected(value: Folder | undefined) {
-    //refresh bookMarks
     this.bookmarks = [];
-    if (value != undefined)
+    if (value != undefined) {
       this.refreshBookmarks(value);
-    //affecter folderselected
-    this._folderSelected = value;
+      this._folderSelected = value;
+    }
   }
 
   constructor(public easyBmService: EasyBMService) {
@@ -32,6 +31,7 @@ export class MainComponent implements OnInit {
       next: (root) => {
         this.root = root;
         this.folderSelected = this.root;
+        this.path.push(root);
       },
       error: (err) => {
         console.log(err);
@@ -55,7 +55,15 @@ export class MainComponent implements OnInit {
   }
 
   selectFolder(folder: Folder) {
-    this.parent = this.folderSelected;
+    let i = this.path.findIndex(f => f == folder);
+    if (i > -1) {
+      console.log(this.path)
+      this.path = this.path.slice(0, i + 1)
+      console.log(this.path)
+
+    }
+    else
+      this.path.push(folder);
     this.folderSelected = folder;
   }
 }

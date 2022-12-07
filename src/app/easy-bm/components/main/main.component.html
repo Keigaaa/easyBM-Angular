@@ -1,5 +1,9 @@
-<ns-item-container *ngIf="parent" [item]="parent" (click)="selectFolder(parent)">
-</ns-item-container>
+<div>
+    <ng-container *ngFor="let item of path">
+        <span (click)="selectFolder(item)">{{item.name}}</span>
+        <span>/</span>
+    </ng-container>
+</div>
 
 <ul>
     <li *ngFor="let item of folderSelected?.children">

@@ -35,7 +35,8 @@ export class ItemContainerComponent implements OnInit {
   }
 
   public checkType() {
-    this.type = ((<any>this.item).children != undefined) ? ItemContainerType.Folder : ItemContainerType.Bookmark;
+
+    this.type = (this.item && (<any>this.item).children != undefined) ? ItemContainerType.Folder : ItemContainerType.Bookmark;
   }
   public isFolder() {
     return this.type == ItemContainerType.Folder;
