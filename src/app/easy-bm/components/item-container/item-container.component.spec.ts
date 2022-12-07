@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FolderContainerComponent } from './folder-container.component';
+import { FolderContainerComponent } from './item-container.component';
 
 describe('FolderContainerComponent', () => {
   let component: FolderContainerComponent;
@@ -8,9 +8,9 @@ describe('FolderContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FolderContainerComponent ]
+      declarations: [FolderContainerComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FolderContainerComponent);
     component = fixture.componentInstance;

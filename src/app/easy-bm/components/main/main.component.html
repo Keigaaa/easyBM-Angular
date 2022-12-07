@@ -1,2 +1,14 @@
-<ns-folder-container></ns-folder-container>
+<ns-item-container *ngIf="parent" [item]="parent" (click)="selectFolder(parent)">
+</ns-item-container>
+
+<ul>
+    <li *ngFor="let item of folderSelected?.children">
+        <ns-item-container [item]="item" (click)="selectFolder(item)"></ns-item-container>
+    </li>
+</ul>
+<ul>
+    <li *ngFor="let item of bookmarks">
+        <ns-item-container [item]="item"></ns-item-container>
+    </li>
+</ul>
 <ns-speed-dial-button></ns-speed-dial-button>

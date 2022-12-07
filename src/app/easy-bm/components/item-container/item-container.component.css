@@ -5,7 +5,7 @@
     align-items: flex-start;
 }
 
-.folderContainer {
+.itemContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,17 +15,12 @@
     border: 3px solid black;
     border-radius: 15%;
     flex-direction: column;
+    cursor: pointer;
+    margin: 10px;
 }
 
-.folderIconContainer {
+.itemIconContainer {
     height: 50%;
     width: 50%;
-}
-
-ul {
-    display: flex;
-}
-
-li {
-    list-style: none;
+    cursor: pointer;
 }

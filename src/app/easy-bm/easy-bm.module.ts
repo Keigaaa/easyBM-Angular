@@ -11,8 +11,7 @@ import { SpeedDialButtonComponent } from './components/speed-dial-button/speed-d
 import { SearchAndBreadcrumbTrailComponent } from './components/search-and-breadcrumb-trail/search-and-breadcrumb-trail.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { BreadcrumbTrailComponent } from './components/breadcrumb-trail/breadcrumb-trail.component';
-import { FolderContainerComponent } from './components/folder-container/folder-container.component';
-import { BookmarkContainerComponent } from './components/bookmark-container/bookmark-container.component';
+import { ItemContainerComponent } from './components/item-container/item-container.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
@@ -26,8 +25,7 @@ const routes: Routes = [
     SearchAndBreadcrumbTrailComponent,
     SearchBarComponent,
     BreadcrumbTrailComponent,
-    FolderContainerComponent,
-    BookmarkContainerComponent,
+    ItemContainerComponent,
   ],
   imports: [
     CommonModule,

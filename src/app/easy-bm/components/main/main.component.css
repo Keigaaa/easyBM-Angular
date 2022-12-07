@@ -6,3 +6,11 @@
     flex-direction: column;
     justify-content: flex-end;
 }
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style: none;
+}
