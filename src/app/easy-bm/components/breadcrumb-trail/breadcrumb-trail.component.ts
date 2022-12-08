@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PathService } from '../../services/path.service';
 
 
 @Component({
@@ -8,6 +9,9 @@ import { Component } from '@angular/core';
 })
 export class BreadcrumbTrailComponent {
 
+  constructor(public pathService: PathService) {
+
+  }
 }
 
 

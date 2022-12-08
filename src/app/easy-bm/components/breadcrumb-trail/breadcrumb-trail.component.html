@@ -1,1 +1,6 @@
-<p class="path">This will be a breadcrumb-trail path !!!</p>
+<div class="breadcrumbTrailContainer">
+    <ng-container *ngFor="let item of pathService.path">
+        <span class="pathName" (click)="pathService.selectFolder(item)">{{item.name}}</span>
+        <span>/</span>
+    </ng-container>
+</div>

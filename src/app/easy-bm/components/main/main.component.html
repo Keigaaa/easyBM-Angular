@@ -1,17 +1,10 @@
-<div>
-    <ng-container *ngFor="let item of path">
-        <span (click)="selectFolder(item)">{{item.name}}</span>
-        <span>/</span>
-    </ng-container>
-</div>
-
 <ul>
-    <li *ngFor="let item of folderSelected?.children">
-        <ns-item-container [item]="item" (click)="selectFolder(item)"></ns-item-container>
+    <li *ngFor="let item of pathService.folderSelected?.children">
+        <ns-item-container [item]="item" (click)="pathService.selectFolder(item)"></ns-item-container>
     </li>
 </ul>
 <ul>
-    <li *ngFor="let item of bookmarks">
+    <li *ngFor="let item of pathService.bookmarks">
         <ns-item-container [item]="item"></ns-item-container>
     </li>
 </ul>

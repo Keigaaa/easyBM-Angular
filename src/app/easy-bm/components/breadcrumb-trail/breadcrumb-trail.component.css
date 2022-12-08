@@ -7,6 +7,11 @@
     align-items: center;
 }
 
-.path {
-    font-size: 18px;
+.breadcrumbTrailContainer {
+    font-size: 21px;
+}
+
+.pathName:hover {
+    color: red;
+    cursor: pointer;
 }
