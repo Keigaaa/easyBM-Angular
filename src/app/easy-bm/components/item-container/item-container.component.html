@@ -1,5 +1,6 @@
-<div class="itemContainer">
-    <i-feather *ngIf="isFolder()" name="folder" class="itemIconContainer"></i-feather>
-    <i-feather *ngIf="isBookmark()" name="bookmark" class="itemIconContainer"></i-feather>
-    <span>{{ item?.name }}</span>
+<div>
+    <i-feather *ngIf="isFolder()" name="folder" class="itemIconContainer" (click)="handleSelectFolder()"></i-feather>
+    <i-feather *ngIf="isBookmark()" name="bookmark" class="itemIconContainer">
+    </i-feather>
+    <span class="folderName">{{ item?.name }}</span>
 </div>

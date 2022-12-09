@@ -1,6 +1,7 @@
 <ul>
     <li *ngFor="let item of pathService.folderSelected?.children">
-        <ns-item-container [item]="item" (click)="pathService.selectFolder(item)"></ns-item-container>
+        <ns-item-container [item]="item" (onSelectFolder)="pathService.selectFolder($event)">
+        </ns-item-container>
     </li>
 </ul>
 <ul>

@@ -3,24 +3,23 @@
     width: 100%;
     height: 100%;
     align-items: flex-start;
-}
-
-.itemContainer {
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 25px;
-    height: 80px;
-    width: 80px;
-    border: 3px solid black;
-    border-radius: 15%;
-    flex-direction: column;
-    cursor: pointer;
-    margin: 10px;
 }
 
 .itemIconContainer {
-    height: 50%;
-    width: 50%;
     cursor: pointer;
+    display: flex;
+    margin: 25px;
+    height: 80px;
+    width: 80px;
+    border-radius: 15%;
+    margin: 0;
+    padding: 0;
+}
+
+.itemName {
+    text-align: center;
+    display: flex;
 }

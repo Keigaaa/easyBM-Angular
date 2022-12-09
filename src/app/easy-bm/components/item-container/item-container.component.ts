@@ -3,6 +3,7 @@ import { Folder } from 'src/app/data-models/folder-model';
 import { Observable } from 'rxjs';
 import { Bookmark } from 'src/app/data-models/bookmark-model';
 import { __values } from 'tslib';
+import { PathService } from '../../services/path.service';
 
 export enum ItemContainerType {
   Folder,
@@ -16,6 +17,7 @@ export enum ItemContainerType {
 export class ItemContainerComponent implements OnInit {
 
   private _item: Folder | Bookmark | undefined;
+  @Output() public onSelectFolder = new EventEmitter<Folder>();
 
   @Input()
   public set item(value: Folder | Bookmark | undefined) {
@@ -43,5 +45,9 @@ export class ItemContainerComponent implements OnInit {
   }
   public isBookmark() {
     return this.type == ItemContainerType.Bookmark;
+  }
+
+  public handleSelectFolder() {
+    this.onSelectFolder.emit(this.item as Folder);
   }
 }
