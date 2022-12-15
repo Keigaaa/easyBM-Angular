@@ -17,6 +17,7 @@ export enum ItemContainerType {
 export class ItemContainerComponent implements OnInit {
 
   private _item: Folder | Bookmark | undefined;
+  public showButton: boolean = false;
   @Output() public onSelectFolder = new EventEmitter<Folder>();
 
   @Input()

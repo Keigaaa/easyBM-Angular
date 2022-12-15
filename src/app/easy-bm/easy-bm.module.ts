@@ -13,6 +13,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { BreadcrumbTrailComponent } from './components/breadcrumb-trail/breadcrumb-trail.component';
 import { ItemContainerComponent } from './components/item-container/item-container.component';
 import { PathService } from './services/path.service';
+import { DeleteButtonComponent } from './components/delete-button/delete-button.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
@@ -27,6 +28,7 @@ const routes: Routes = [
     SearchBarComponent,
     BreadcrumbTrailComponent,
     ItemContainerComponent,
+    DeleteButtonComponent,
   ],
   imports: [
     CommonModule,

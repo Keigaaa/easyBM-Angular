@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FolderContainerComponent } from './item-container.component';
+import { ItemContainerComponent } from './item-container.component';
 
 describe('FolderContainerComponent', () => {
-  let component: FolderContainerComponent;
-  let fixture: ComponentFixture<FolderContainerComponent>;
+  let component: ItemContainerComponent;
+  let fixture: ComponentFixture<ItemContainerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FolderContainerComponent]
+      declarations: [ItemContainerComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(FolderContainerComponent);
+    fixture = TestBed.createComponent(ItemContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
