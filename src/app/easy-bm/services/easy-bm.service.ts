@@ -74,6 +74,18 @@ export class EasyBMService {
     // Returns the root folder containing the entire tree
     return root;
   }
+
+  public deleteFolder(folder: Folder | Bookmark | undefined) {
+    return this.http.delete<Folder>(environment.apis.bookmarks + 'folder/' + folder?.id, { headers: this.header }).subscribe(data => {
+      console.log(data);
+      window.location.reload();
+    });
+  }
+
+  public deleteBookmark(bookmark: Folder | Bookmark | undefined) {
+    return this.http.delete<Folder>(environment.apis.bookmarks + 'bookmark/' + bookmark?.id, { headers: this.header }).subscribe(data => {
+      console.log(data);
+      window.location.reload();
+    });
+  }
 }
-
-

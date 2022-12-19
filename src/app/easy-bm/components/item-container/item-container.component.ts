@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Bookmark } from 'src/app/data-models/bookmark-model';
 import { __values } from 'tslib';
 import { PathService } from '../../services/path.service';
+import { EasyBMService } from '../../services/easy-bm.service';
 
 export enum ItemContainerType {
   Folder,
@@ -18,6 +19,7 @@ export class ItemContainerComponent implements OnInit {
 
   private _item: Folder | Bookmark | undefined;
   public showButton: boolean = false;
+
   @Output() public onSelectFolder = new EventEmitter<Folder>();
 
   @Input()
@@ -30,7 +32,7 @@ export class ItemContainerComponent implements OnInit {
   }
 
   type: ItemContainerType | undefined = undefined;
-  constructor() {
+  constructor(public easyBmService: EasyBMService, public pathService: PathService) {
 
   }
   ngOnInit(): void {

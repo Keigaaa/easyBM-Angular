@@ -1,9 +1,10 @@
-<div class="itemContainer">
-    <i-feather (mouseover)="showButton = true" (mouseleave)="showButton = false" *ngIf="isFolder()" name="folder"
-        class="itemIconContainer" (click)="handleSelectFolder()"></i-feather>
-    <i-feather (mouseover)="showButton = true" (mouseleave)="showButton = false" *ngIf="isBookmark()" name="bookmark"
-        class="itemIconContainer">
+<div class="itemContainer" (mouseover)="showButton = true" (mouseleave)="showButton = false">
+    <i-feather *ngIf="isFolder()" name="folder" class="itemIconContainer" (click)="handleSelectFolder()"></i-feather>
+    <i-feather *ngIf="isBookmark()" name="bookmark" class="itemIconContainer">
     </i-feather>
-    <ns-delete-button *ngIf="showButton"></ns-delete-button>
+    <ns-delete-button *ngIf="showButton && isFolder()"
+        (click)="this.easyBmService.deleteFolder(item)"></ns-delete-button>
+    <ns-delete-button *ngIf="showButton && isBookmark()"
+        (click)="this.easyBmService.deleteBookmark(item)"></ns-delete-button>
     <span class="folderName">{{ item?.name }}</span>
 </div>
