@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apis: {
-    bookmarks: "http://easyBM.test/api/"
+    bookmarks: "https://lab016.s1.2isa.org/api/"
   }
 };
 
