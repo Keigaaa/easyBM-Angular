@@ -83,9 +83,13 @@ export class EasyBMService {
   }
 
   public deleteBookmark(bookmark: Folder | Bookmark | undefined) {
-    return this.http.delete<Folder>(environment.apis.bookmarks + 'bookmark/' + bookmark?.id, { headers: this.header }).subscribe(data => {
+    return this.http.delete<Bookmark>(environment.apis.bookmarks + 'bookmark/' + bookmark?.id, { headers: this.header }).subscribe(data => {
       console.log(data);
       window.location.reload();
     });
+  }
+
+  public updateFolder(folder: Folder | Bookmark | undefined) {
+    return this.http.put<Folder>(environment.apis.bookmarks + 'bookmark/' + folder?.id, { headers: this.header }).subscribe
   }
 }
